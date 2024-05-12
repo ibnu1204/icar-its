@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.devtools)
+    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.googleServices)
 }
 
 android {
@@ -40,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -66,4 +69,21 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    ksp(libs.raamcosta.ksp)
+    ksp(libs.hilt.android.compiler)
+
+    implementation(libs.onelib)
+    implementation(libs.androidx.animation.android)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation)
+    implementation(libs.androidx.constrainlayout)
+    implementation(libs.androidx.navigation)
+    implementation(libs.raamcosta.core)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.accompanist.navigation.animation)
+    implementation(libs.accompanist.permission)
+    implementation(libs.coil.compose)
+    implementation(platform(libs.firebase.bom))
 }

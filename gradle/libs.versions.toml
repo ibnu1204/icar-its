@@ -1,13 +1,28 @@
 [versions]
 agp = "8.4.0"
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
-composeBom = "2023.08.00"
+composeBom = "2024.05.00"
+devtools = "1.9.10-1.0.13"
+daggerHilt = "2.48"
+hiltNavigation = "1.2.0"
+constraintLayout = "1.0.1"
+onelib = "1.0.1"
+raamcosta = "1.9.54"
+navigation = "2.7.7"
+accompanistUiController = "0.30.1"
+accompanistNavigationMaterial = "0.31.5-beta"
+accompanistNavigationAnimation = "0.31.2-alpha"
+accpanistPermission = "0.31.0-alpha"
+composeAnimationAndroid = "1.6.7"
+coil = "2.6.0"
+googleServices = "4.4.1"
+firebaseBom = "32.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,8 +39,27 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-constrainlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintLayout" }
+onelib = { group = "com.github.wahidabd", name = "onelib", version.ref = "onelib" }
+androidx-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "composeAnimationAndroid" }
+raamcosta-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "raamcosta" }
+raamcosta-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "raamcosta" }
+accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanistUiController" }
+accompanist-navigation-material = { group = "com.google.accompanist", name = "accompanist-navigation-material", version.ref = "accompanistNavigationMaterial" }
+accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanistNavigationAnimation" }
+accompanist-permission = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accpanistPermission" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "daggerHilt" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+devtools = { id = "com.google.devtools.ksp", version.ref = "devtools" }
+daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "daggerHilt" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 
