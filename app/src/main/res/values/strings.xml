@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">icar</string>
+    <string name="app_name">iCar ITS</string>
+    <string name="label_onboarding_title">Hop On for a Ride!</string>
+    <string name="label_onboarding_body">Experience efficient transportation around the ITS campus with iCar ITS</string>
+    <string name="label_login_sso">Login with myITS</string>
+    <string name="label_or">or</string>
+    <string name="label_login">Login</string>
+    <string name="label_signup">Sing Up</string>
+    <string name="label_login_account">Login into your account</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_name">Name</string>
+    <string name="label_enter_email">Enter your email</string>
+    <string name="label_enter_password">Enter your password</string>
+    <string name="label_enter_name">Enter your name</string>
+    <string name="label_forgot_password">Forgot Password?</string>
 </resources>

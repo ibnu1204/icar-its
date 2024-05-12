@@ -29,7 +29,7 @@ val Typography = Typography(
     ),
     labelMedium = TextStyle(
         fontFamily = InterFamily,
-        fontWeight = FontWeight.Light,
+        fontWeight = FontWeight.ExtraLight,
         fontSize = 10.sp,
         letterSpacing = 0.5.sp
     ),
@@ -101,13 +101,13 @@ val Typography = Typography(
     ),
     displayMedium = TextStyle(
         fontFamily = InterFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.ExtraBold,
         fontSize = 34.sp,
         letterSpacing = 0.5.sp
     ),
     displayLarge = TextStyle(
         fontFamily = InterFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Black,
         fontSize = 36.sp,
         letterSpacing = 0.5.sp
     )

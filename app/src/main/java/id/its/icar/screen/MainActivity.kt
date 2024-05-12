@@ -1,4 +1,4 @@
-package id.its.icar
+package id.its.icar.screen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
