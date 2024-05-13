@@ -143,9 +143,3 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
         }
     }
 }
-
-@Preview
-@Composable
-private fun OnBoardingPreview() {
-    OnBoardingScreen(navigator = EmptyDestinationsNavigator)
-}

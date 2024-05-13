@@ -10,8 +10,10 @@
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="label_name">Name</string>
-    <string name="label_enter_email">Enter your email</string>
-    <string name="label_enter_password">Enter your password</string>
-    <string name="label_enter_name">Enter your name</string>
-    <string name="label_forgot_password">Forgot Password?</string>
+    <string name="label_hint_email">Enter your email</string>
+    <string name="label_hint_password">Enter your password</string>
+    <string name="label_hint_name">Enter your name</string>
+    <string name="label_forgot_password">Forgot your password?</string>
+    <string name="label_no_account">Don\'t have an account?</string>
+    <string name="label_have_account">Already have an account?</string>
 </resources>

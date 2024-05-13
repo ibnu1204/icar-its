@@ -2,6 +2,7 @@ package id.its.icar.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -60,6 +61,7 @@ fun IcarButton(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
             .fillMaxWidth(),
+        contentPadding = PaddingValues(0.dp)
     ) {
         if (icon != 0) {
             Image(

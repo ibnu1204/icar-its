@@ -32,6 +32,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
 import id.its.icar.R
@@ -45,14 +46,15 @@ import id.its.icar.utils.ButtonType
 
 
 /**
- * Created by wahid on 5/9/2024.
+ * Created by wahid on 5/13/2024.
  * Github github.com/wahidabd.
  */
 
 
+@Destination
 @Composable
-fun LoginScreen(navigator: DestinationsNavigator) {
-
+fun RegisterScreen(navigator: DestinationsNavigator) {
+    var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -104,6 +106,15 @@ fun LoginScreen(navigator: DestinationsNavigator) {
         ) {
 
             IcarTextField(
+                label = stringResource(id = R.string.label_name),
+                hint = stringResource(id = R.string.label_hint_name),
+                value = name,
+                onValueChange = { name = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
+
+            IcarTextField(
                 label = stringResource(id = R.string.label_email),
                 hint = stringResource(id = R.string.label_hint_email),
                 value = email,
@@ -136,7 +147,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.size(32.dp))
 
             IcarButton(
-                text = stringResource(id = R.string.label_login),
+                text = stringResource(id = R.string.label_signup),
                 type = ButtonType.BLUE,
                 onClick = {}
             )
@@ -172,7 +183,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = stringResource(id = R.string.label_no_account),
+                    text = stringResource(id = R.string.label_have_account),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Gray600,
                         fontSize = 14.sp
@@ -182,7 +193,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 Spacer(modifier = Modifier.size(4.dp))
 
                 Text(
-                    text = stringResource(id = R.string.label_signup),
+                    text = stringResource(id = R.string.label_login),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Primary500,
                         fontSize = 14.sp
@@ -192,4 +203,10 @@ fun LoginScreen(navigator: DestinationsNavigator) {
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun RegisterScreenPreview() {
+    RegisterScreen(navigator = EmptyDestinationsNavigator)
 }
