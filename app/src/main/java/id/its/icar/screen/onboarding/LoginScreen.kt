@@ -32,9 +32,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
 import id.its.icar.R
+import id.its.icar.screen.onboarding.destinations.RegisterScreenDestination
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
 import id.its.icar.ui.theme.Gray500
@@ -50,11 +52,13 @@ import id.its.icar.utils.ButtonType
  */
 
 
+@Destination
 @Composable
 fun LoginScreen(navigator: DestinationsNavigator) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var showPassword by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -63,6 +67,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 painter = painterResource(id = R.drawable.bg_main),
                 contentScale = ContentScale.FillBounds
             )
+            .padding(top = 24.dp)
     ) {
         Row(
             modifier = Modifier
@@ -108,9 +113,12 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 hint = stringResource(id = R.string.label_hint_email),
                 value = email,
                 onValueChange = { email = it },
+                type = KeyboardType.Email,
                 modifier = Modifier
                     .fillMaxWidth()
             )
+
+            Spacer(modifier = Modifier.size(20.dp))
 
             IcarTextField(
                 label = stringResource(id = R.string.label_password),
@@ -118,6 +126,8 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 value = password,
                 onValueChange = { password = it },
                 type = KeyboardType.Password,
+                showPassword = showPassword,
+                transformPassword = { showPassword = it },
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -186,7 +196,11 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Primary500,
                         fontSize = 14.sp
-                    )
+                    ),
+                    modifier = Modifier
+                        .clickable {
+                            navigator.navigate(RegisterScreenDestination)
+                        }
                 )
 
             }

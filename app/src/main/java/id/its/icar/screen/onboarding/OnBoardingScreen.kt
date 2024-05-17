@@ -26,14 +26,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
 import id.its.icar.R
+import id.its.icar.screen.onboarding.destinations.LoginScreenDestination
+import id.its.icar.screen.onboarding.destinations.RegisterScreenDestination
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.theme.Primary200
 import id.its.icar.utils.ButtonType
@@ -56,6 +56,7 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
                 painter = painterResource(id = R.drawable.bg_main),
                 contentScale = ContentScale.FillBounds
             )
+            .padding(top = 24.dp)
     ) {
         Column(
             modifier = Modifier
@@ -114,12 +115,12 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
             )
 
             Row(
-               modifier = Modifier
-                   .padding(vertical = 30.dp)
-                   .fillMaxWidth(),
+                modifier = Modifier
+                    .padding(vertical = 30.dp)
+                    .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ){
+            ) {
                 HorizontalDivider(modifier = Modifier.weight(1F), color = Primary200)
                 Text(
                     text = stringResource(id = R.string.label_or),
@@ -130,7 +131,9 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
 
             IcarButton(
                 text = stringResource(id = R.string.label_login),
-                onClick = {}
+                onClick = {
+                    navigator.navigate(LoginScreenDestination)
+                }
             )
 
             Spacer(modifier = Modifier.size(16.dp))
@@ -138,7 +141,9 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
             IcarButton(
                 text = stringResource(id = R.string.label_signup),
                 type = ButtonType.TRANSPARENT,
-                onClick = {}
+                onClick = {
+                    navigator.navigate(RegisterScreenDestination)
+                }
             )
         }
     }

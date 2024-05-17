@@ -36,6 +36,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
 import id.its.icar.R
+import id.its.icar.screen.onboarding.destinations.LoginScreenDestination
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
 import id.its.icar.ui.theme.Gray500
@@ -54,9 +55,11 @@ import id.its.icar.utils.ButtonType
 @Destination
 @Composable
 fun RegisterScreen(navigator: DestinationsNavigator) {
+
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var showPassword by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -65,6 +68,7 @@ fun RegisterScreen(navigator: DestinationsNavigator) {
                 painter = painterResource(id = R.drawable.bg_main),
                 contentScale = ContentScale.FillBounds
             )
+            .padding(top = 24.dp)
     ) {
         Row(
             modifier = Modifier
@@ -85,7 +89,7 @@ fun RegisterScreen(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.size(16.dp))
 
             Text(
-                text = stringResource(id = R.string.label_login_account),
+                text = stringResource(id = R.string.label_create_account),
                 style = MaterialTheme.typography.headlineMedium.copy(
                     color = Color.White,
                     fontSize = 20.sp,
@@ -114,14 +118,19 @@ fun RegisterScreen(navigator: DestinationsNavigator) {
                     .fillMaxWidth()
             )
 
+            Spacer(modifier = Modifier.size(20.dp))
+
             IcarTextField(
                 label = stringResource(id = R.string.label_email),
                 hint = stringResource(id = R.string.label_hint_email),
                 value = email,
                 onValueChange = { email = it },
+                type = KeyboardType.Email,
                 modifier = Modifier
                     .fillMaxWidth()
             )
+
+            Spacer(modifier = Modifier.size(20.dp))
 
             IcarTextField(
                 label = stringResource(id = R.string.label_password),
@@ -129,6 +138,8 @@ fun RegisterScreen(navigator: DestinationsNavigator) {
                 value = password,
                 onValueChange = { password = it },
                 type = KeyboardType.Password,
+                showPassword = showPassword,
+                transformPassword = { showPassword = it },
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -197,7 +208,11 @@ fun RegisterScreen(navigator: DestinationsNavigator) {
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Primary500,
                         fontSize = 14.sp
-                    )
+                    ),
+                    modifier = Modifier
+                        .clickable {
+                            navigator.navigate(LoginScreenDestination)
+                        }
                 )
 
             }

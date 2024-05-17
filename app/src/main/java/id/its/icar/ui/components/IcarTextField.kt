@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -54,7 +56,8 @@ fun IcarTextField(
             text = label,
             style = MaterialTheme.typography.labelMedium,
             color = Gray700,
-            fontSize = 12.sp
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Medium,
         )
 
         Spacer(modifier = Modifier.padding(top = 6.dp))
@@ -73,7 +76,8 @@ fun IcarTextField(
                     shape = RoundedCornerShape(8.dp)
                 )
                 .padding(horizontal = 14.dp, vertical = 10.dp),
-            visualTransformation = if (showPassword) VisualTransformation.None else PasswordVisualTransformation(),
+            keyboardOptions = KeyboardOptions(keyboardType = type),
+            visualTransformation = if (!showPassword && type == KeyboardType.Password) PasswordVisualTransformation() else VisualTransformation.None,
             decorationBox = { innerTextField ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -83,7 +87,7 @@ fun IcarTextField(
                     if (value.isEmpty()) {
                         Text(
                             text = hint,
-                            style = MaterialTheme.typography.bodyMedium.copy(color = Gray400),
+                            style = MaterialTheme.typography.bodyMedium.copy(color = Gray400, fontSize = fontSize.sp),
                             modifier = Modifier.weight(1F)
                         )
                     }
