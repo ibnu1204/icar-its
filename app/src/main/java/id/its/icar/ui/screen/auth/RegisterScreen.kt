@@ -1,4 +1,4 @@
-package id.its.icar.screen.onboarding
+package id.its.icar.ui.screen.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,36 +29,44 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
-import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
+import com.wahidabd.library.utils.common.showToast
+import com.wahidabd.library.utils.exts.collectStateFlow
 import id.its.icar.R
-import id.its.icar.screen.onboarding.destinations.RegisterScreenDestination
+import id.its.icar.domain.model.request.RegisterRequest
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
+import id.its.icar.ui.screen.auth.destinations.LoginScreenDestination
 import id.its.icar.ui.theme.Gray500
 import id.its.icar.ui.theme.Gray600
 import id.its.icar.ui.theme.Primary200
 import id.its.icar.ui.theme.Primary500
 import id.its.icar.utils.ButtonType
+import org.koin.androidx.compose.koinViewModel
+import timber.log.Timber
 
 
 /**
- * Created by wahid on 5/9/2024.
+ * Created by wahid on 5/13/2024.
  * Github github.com/wahidabd.
  */
 
 
 @Destination
 @Composable
-fun LoginScreen(navigator: DestinationsNavigator) {
+fun RegisterScreen(
+    navigator: DestinationsNavigator,
+    viewModel: AuthViewModel = koinViewModel()
+) {
 
+    var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var showPassword by remember { mutableStateOf(false) }
+    var isSendToViewModel by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -88,7 +96,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.size(16.dp))
 
             Text(
-                text = stringResource(id = R.string.label_login_account),
+                text = stringResource(id = R.string.label_create_account),
                 style = MaterialTheme.typography.headlineMedium.copy(
                     color = Color.White,
                     fontSize = 20.sp,
@@ -107,6 +115,17 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 .padding(top = 32.dp)
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         ) {
+
+            IcarTextField(
+                label = stringResource(id = R.string.label_name),
+                hint = stringResource(id = R.string.label_hint_name),
+                value = name,
+                onValueChange = { name = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.size(20.dp))
 
             IcarTextField(
                 label = stringResource(id = R.string.label_email),
@@ -146,9 +165,18 @@ fun LoginScreen(navigator: DestinationsNavigator) {
             Spacer(modifier = Modifier.size(32.dp))
 
             IcarButton(
-                text = stringResource(id = R.string.label_login),
+                text = stringResource(id = R.string.label_signup),
                 type = ButtonType.BLUE,
-                onClick = {}
+                onClick = {
+                    if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+                        isSendToViewModel = true
+
+                        val body = RegisterRequest(name, email, password)
+                        viewModel.register(body)
+                    } else {
+                        showToast("Please fill all fields")
+                    }
+                }
             )
 
             Row(
@@ -182,7 +210,7 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = stringResource(id = R.string.label_no_account),
+                    text = stringResource(id = R.string.label_have_account),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Gray600,
                         fontSize = 14.sp
@@ -192,18 +220,33 @@ fun LoginScreen(navigator: DestinationsNavigator) {
                 Spacer(modifier = Modifier.size(4.dp))
 
                 Text(
-                    text = stringResource(id = R.string.label_signup),
+                    text = stringResource(id = R.string.label_login),
                     style = MaterialTheme.typography.bodyMedium.copy(
                         color = Primary500,
                         fontSize = 14.sp
                     ),
                     modifier = Modifier
                         .clickable {
-                            navigator.navigate(RegisterScreenDestination)
+                            navigator.navigate(LoginScreenDestination)
                         }
                 )
 
             }
         }
     }
+
+    viewModel.register.collectStateFlow(
+        onLoading = {
+            isSendToViewModel = false
+            Timber.d("LOADING")
+        },
+        onFailure = { _, message ->
+            isSendToViewModel = false
+            Timber.d("FAILURE: $message")
+        },
+        onSuccess = {
+            navigator.navigateUp()
+        }
+    )
+
 }

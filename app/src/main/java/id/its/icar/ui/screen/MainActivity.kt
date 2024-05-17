@@ -1,4 +1,4 @@
-package id.its.icar.screen
+package id.its.icar.ui.screen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,7 +15,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.rememberNavHostEngine
-import id.its.icar.screen.onboarding.NavGraphs
+import id.its.icar.ui.screen.auth.NavGraphs
 import id.its.icar.ui.theme.IcarTheme
 
 @OptIn(ExperimentalAnimationApi::class)

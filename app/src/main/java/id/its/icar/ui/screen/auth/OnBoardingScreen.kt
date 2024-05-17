@@ -1,4 +1,4 @@
-package id.its.icar.screen.onboarding
+package id.its.icar.ui.screen.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,9 +32,9 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import id.its.icar.R
-import id.its.icar.screen.onboarding.destinations.LoginScreenDestination
-import id.its.icar.screen.onboarding.destinations.RegisterScreenDestination
 import id.its.icar.ui.components.IcarButton
+import id.its.icar.ui.screen.auth.destinations.LoginScreenDestination
+import id.its.icar.ui.screen.auth.destinations.RegisterScreenDestination
 import id.its.icar.ui.theme.Primary200
 import id.its.icar.utils.ButtonType
 

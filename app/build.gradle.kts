@@ -86,4 +86,10 @@ dependencies {
     implementation(libs.accompanist.permission)
     implementation(libs.coil.compose)
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.koin.compose)
+//    implementation(libs.koin.android)
+//    implementation(libs.koin.workmanager)
+//    implementation(libs.koin.navigation)
 }
