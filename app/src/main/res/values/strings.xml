@@ -20,4 +20,9 @@
     <string name="label_home">Home</string>
     <string name="label_my_ticket">My Ticket</string>
     <string name="label_profile">Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change password</string>
+    <string name="change_language">Change language</string>
+    <string name="call_center">Call Center</string>
+    <string name="logout">Logout</string>
 </resources>

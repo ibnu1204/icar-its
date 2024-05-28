@@ -21,4 +21,9 @@
     <string name="label_home">Beranda</string>
     <string name="label_my_ticket">Tiket Saya</string>
     <string name="label_profile">Profil</string>
+    <string name="edit_profile">Edit Profil</string>
+    <string name="change_password">Ganti password</string>
+    <string name="change_language">Ganti bahasa</string>
+    <string name="call_center">Pusat bantuan</string>
+    <string name="logout">Keluar</string>
 </resources>
