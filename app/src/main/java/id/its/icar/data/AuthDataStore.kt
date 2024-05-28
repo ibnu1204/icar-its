@@ -4,7 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.wahidabd.library.data.Resource
 import com.wahidabd.library.utils.coroutine.handler.GenericResponse
-import com.wahidabd.library.utils.firebase.FirebaseFirestoreManager
+import com.wahidabd.library.utils.firebase.OneFirebaseAuth
+import com.wahidabd.library.utils.firebase.OneFirebaseFirestore
 import id.its.icar.domain.model.request.LoginRequest
 import id.its.icar.domain.model.request.RegisterRequest
 import id.its.icar.domain.model.response.LoginResponse
@@ -19,13 +20,10 @@ import kotlinx.coroutines.flow.callbackFlow
  */
 
 
-class AuthDataStore : AuthRepository, FirebaseFirestoreManager() {
+class AuthDataStore : AuthRepository, OneFirebaseAuth, OneFirebaseFirestore() {
 
     override val databaseRef: FirebaseFirestore = FirebaseFirestore.getInstance()
-
-    companion object {
-        private val auth = FirebaseAuth.getInstance()
-    }
+    override val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     override suspend fun login(body: LoginRequest): Flow<Resource<LoginResponse>> = callbackFlow {
         trySend(Resource.loading())
@@ -52,10 +50,11 @@ class AuthDataStore : AuthRepository, FirebaseFirestoreManager() {
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         setValue(
-                            id = body.email,
                             value = body.toMap(),
                             collection = "user",
-                            eventListener = { data -> trySend(data) },
+                            eventListener = {
+                                trySend(Resource.success(GenericResponse(true, "Success")))
+                            },
                         )
                     } else {
                         trySend(Resource.fail(it.exception?.message ?: "Error"))
@@ -67,5 +66,4 @@ class AuthDataStore : AuthRepository, FirebaseFirestoreManager() {
 
             awaitClose(this::close)
         }
-
 }

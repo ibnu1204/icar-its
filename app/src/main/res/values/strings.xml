@@ -17,4 +17,7 @@
     <string name="label_forgot_password">Forgot your password?</string>
     <string name="label_no_account">Don\'t have an account?</string>
     <string name="label_have_account">Already have an account?</string>
+    <string name="label_home">Home</string>
+    <string name="label_my_ticket">My Ticket</string>
+    <string name="label_profile">Profile</string>
 </resources>

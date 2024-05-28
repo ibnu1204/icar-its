@@ -34,12 +34,12 @@ import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wahidabd.library.utils.common.showToast
-import com.wahidabd.library.utils.exts.collectStateFlow
+import com.wahidabd.library.utils.compose.collectStateFlow
 import id.its.icar.R
 import id.its.icar.domain.model.request.RegisterRequest
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
-import id.its.icar.ui.screen.auth.destinations.LoginScreenDestination
+import id.its.icar.ui.screen.destinations.LoginScreenDestination
 import id.its.icar.ui.theme.Gray500
 import id.its.icar.ui.theme.Gray600
 import id.its.icar.ui.theme.Primary200
@@ -240,7 +240,7 @@ fun RegisterScreen(
             isSendToViewModel = false
             Timber.d("LOADING")
         },
-        onFailure = { _, message ->
+        onFailure = { message ->
             isSendToViewModel = false
             Timber.d("FAILURE: $message")
         },

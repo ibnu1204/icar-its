@@ -29,12 +29,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import id.its.icar.R
 import id.its.icar.ui.components.IcarButton
-import id.its.icar.ui.screen.auth.destinations.LoginScreenDestination
-import id.its.icar.ui.screen.auth.destinations.RegisterScreenDestination
+import id.its.icar.ui.screen.destinations.LoginScreenDestination
+import id.its.icar.ui.screen.destinations.RegisterScreenDestination
 import id.its.icar.ui.theme.Primary200
 import id.its.icar.utils.ButtonType
 
@@ -45,7 +44,6 @@ import id.its.icar.utils.ButtonType
  */
 
 
-@RootNavGraph(start = true)
 @Destination
 @Composable
 fun OnBoardingScreen(navigator: DestinationsNavigator) {

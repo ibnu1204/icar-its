@@ -34,12 +34,12 @@ import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wahidabd.library.utils.common.showToast
-import com.wahidabd.library.utils.exts.collectStateFlow
+import com.wahidabd.library.utils.compose.collectStateFlow
 import id.its.icar.R
 import id.its.icar.domain.model.request.LoginRequest
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
-import id.its.icar.ui.screen.auth.destinations.RegisterScreenDestination
+import id.its.icar.ui.screen.destinations.RegisterScreenDestination
 import id.its.icar.ui.theme.Gray500
 import id.its.icar.ui.theme.Gray600
 import id.its.icar.ui.theme.Primary200
@@ -222,7 +222,7 @@ fun LoginScreen(
 
     viewModel.login.collectStateFlow(
         onLoading = {},
-        onFailure = { _, message ->
+        onFailure = { message ->
             showToast(message.toString())
             Timber.d(message.toString())
         },
