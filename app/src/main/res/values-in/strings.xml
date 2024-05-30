@@ -26,4 +26,6 @@
     <string name="change_language">Ganti bahasa</string>
     <string name="call_center">Pusat bantuan</string>
     <string name="logout">Keluar</string>
+    <string name="indonesian">Indonesia</string>
+    <string name="english">English</string>
 </resources>

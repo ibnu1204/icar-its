@@ -25,4 +25,6 @@
     <string name="change_language">Change language</string>
     <string name="call_center">Call Center</string>
     <string name="logout">Logout</string>
+    <string name="indonesian">Indonesia</string>
+    <string name="english">English</string>
 </resources>

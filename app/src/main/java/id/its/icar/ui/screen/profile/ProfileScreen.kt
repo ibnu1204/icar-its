@@ -2,6 +2,7 @@ package id.its.icar.ui.screen.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -32,6 +33,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.navigation.EmptyDestinationsNavigator
 import id.its.icar.R
+import id.its.icar.ui.screen.destinations.LanguageScreenDestination
 import id.its.icar.ui.theme.Gray400
 import id.its.icar.ui.theme.Gray50
 import id.its.icar.ui.theme.Gray500
@@ -115,7 +117,9 @@ fun ProfileScreen(
 
             MenuItem(icon = R.drawable.ic_edit, title = R.string.edit_profile) {}
             MenuItem(icon = R.drawable.ic_lock, title = R.string.change_password) {}
-            MenuItem(icon = R.drawable.ic_language, title = R.string.change_language) {}
+            MenuItem(icon = R.drawable.ic_language, title = R.string.change_language) {
+                navigator.navigate(LanguageScreenDestination)
+            }
             MenuItem(icon = R.drawable.ic_chat, title = R.string.call_center) {}
             MenuItem(icon = R.drawable.ic_logout, title = R.string.logout) {}
         }
@@ -130,7 +134,10 @@ fun MenuItem(
     onClick: () -> Unit
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .clickable {
+                onClick()
+            },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 

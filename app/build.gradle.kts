@@ -16,6 +16,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        resourceConfigurations.plus(listOf("id", "en"))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -49,6 +50,10 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+
+    androidResources {
+        generateLocaleConfig = true
     }
 }
 
