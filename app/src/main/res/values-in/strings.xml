@@ -27,5 +27,13 @@
     <string name="call_center">Pusat bantuan</string>
     <string name="logout">Keluar</string>
     <string name="indonesian">Indonesia</string>
-    <string name="english">English</string>
+    <string name="english">Inggris</string>
+    <string name="queue_icar">Antre iCar ITS</string>
+    <string name="check_queue">Cek Antrean iCar</string>
+    <string name="select_shelter">Pilih Halte</string>
+    <string name="select_route">Pilih Rute</string>
+    <string name="label_save">Simpan</string>
+    <string name="label_cancek">Batal</string>
+    <string name="label_confirm_queue">Konfirmasi Antrean</string>
+    <string name="label_queue_now">Antre Sekarang</string>
 </resources>

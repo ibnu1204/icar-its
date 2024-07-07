@@ -1,10 +1,10 @@
-package id.its.icar.domain
+package id.its.icar.data.user
 
 import com.wahidabd.library.data.Resource
 import com.wahidabd.library.utils.coroutine.handler.GenericResponse
-import id.its.icar.domain.model.request.LoginRequest
-import id.its.icar.domain.model.request.RegisterRequest
-import id.its.icar.domain.model.response.LoginResponse
+import id.its.icar.domain.user.model.request.LoginRequest
+import id.its.icar.domain.user.model.request.RegisterRequest
+import id.its.icar.domain.user.model.response.LoginResponse
 import kotlinx.coroutines.flow.Flow
 
 
@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
  */
 
 
-interface AuthUseCase {
+interface AuthRepository {
     suspend fun login(body: LoginRequest): Flow<Resource<LoginResponse>>
     suspend fun register(body: RegisterRequest): Flow<Resource<GenericResponse>>
 }

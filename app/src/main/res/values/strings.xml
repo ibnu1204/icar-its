@@ -27,4 +27,12 @@
     <string name="logout">Logout</string>
     <string name="indonesian">Indonesia</string>
     <string name="english">English</string>
+    <string name="queue_icar">Queue iCar ITS</string>
+    <string name="check_queue">Check iCar Queue</string>
+    <string name="select_shelter">Select Shelter</string>
+    <string name="select_route">Select Route</string>
+    <string name="label_save">Save</string>
+    <string name="label_cancek">Cancel</string>
+    <string name="label_confirm_queue">Confirm Queue</string>
+    <string name="label_queue_now">Queue Now</string>
 </resources>

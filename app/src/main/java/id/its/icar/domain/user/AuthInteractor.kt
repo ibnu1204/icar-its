@@ -1,11 +1,11 @@
-package id.its.icar.domain
+package id.its.icar.domain.user
 
 import com.wahidabd.library.data.Resource
 import com.wahidabd.library.utils.coroutine.handler.GenericResponse
-import id.its.icar.data.AuthRepository
-import id.its.icar.domain.model.request.LoginRequest
-import id.its.icar.domain.model.request.RegisterRequest
-import id.its.icar.domain.model.response.LoginResponse
+import id.its.icar.data.user.AuthRepository
+import id.its.icar.domain.user.model.request.LoginRequest
+import id.its.icar.domain.user.model.request.RegisterRequest
+import id.its.icar.domain.user.model.response.LoginResponse
 import kotlinx.coroutines.flow.Flow
 
 

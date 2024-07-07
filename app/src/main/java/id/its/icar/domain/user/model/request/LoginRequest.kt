@@ -1,4 +1,4 @@
-package id.its.icar.domain.model.request
+package id.its.icar.domain.user.model.request
 
 
 /**

@@ -1,4 +1,4 @@
-package id.its.icar.domain.model.response
+package id.its.icar.domain.user.model.response
 
 import com.wahidabd.library.utils.common.emptyString
 

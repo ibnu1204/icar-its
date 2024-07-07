@@ -42,6 +42,7 @@ fun IcarTextField(
     label: String,
     hint: String,
     value: String,
+    startIcon: Int? = null,
     onValueChange: (String) -> Unit,
     fontSize: Int = 14,
     type: KeyboardType = KeyboardType.Text,
@@ -52,13 +53,15 @@ fun IcarTextField(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelMedium,
-            color = Gray700,
-            fontSize = 12.sp,
-            fontWeight = FontWeight.Medium,
-        )
+        if (label.isNotBlank()) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelMedium,
+                color = Gray700,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Medium,
+            )
+        }
 
         Spacer(modifier = Modifier.padding(top = 6.dp))
 
@@ -84,6 +87,18 @@ fun IcarTextField(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = if (value.isEmpty()) Arrangement.SpaceBetween else Arrangement.End
                 ) {
+
+                    if (startIcon != null) {
+                        Icon(
+                            painter = painterResource(id = startIcon),
+                            contentDescription = null,
+                            tint = Gray400,
+                            modifier = Modifier.size(22.dp)
+                        )
+
+                        Spacer(modifier = Modifier.size(12.dp))
+                    }
+
                     if (value.isEmpty()) {
                         Text(
                             text = hint,

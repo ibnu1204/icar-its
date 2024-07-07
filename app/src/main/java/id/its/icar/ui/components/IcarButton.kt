@@ -37,17 +37,13 @@ fun IcarButton(
     text: String,
     icon: Int = 0,
     type: ButtonType = ButtonType.WHITE,
+    disable: Boolean = false,
     onClick: () -> Unit
 ) {
     Button(
-        onClick = { onClick() },
+        onClick = { if (!disable) onClick() },
         colors = ButtonDefaults.buttonColors(
-            containerColor = when (type) {
-                ButtonType.WHITE -> Color.White
-                ButtonType.BLUE -> Primary500
-                ButtonType.BORDER -> Color.Transparent
-                ButtonType.TRANSPARENT -> Color.Transparent
-            },
+            containerColor = if (!disable) type.color else type.disable,
         ),
         border = BorderStroke(
             width = 1.dp,
@@ -59,7 +55,7 @@ fun IcarButton(
             }
         ),
         shape = RoundedCornerShape(8.dp),
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth(),
         contentPadding = PaddingValues(0.dp)
     ) {

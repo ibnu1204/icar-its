@@ -1,4 +1,4 @@
-package id.its.icar.data
+package id.its.icar.data.user
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -6,9 +6,9 @@ import com.wahidabd.library.data.Resource
 import com.wahidabd.library.utils.coroutine.handler.GenericResponse
 import com.wahidabd.library.utils.firebase.OneFirebaseAuth
 import com.wahidabd.library.utils.firebase.OneFirebaseFirestore
-import id.its.icar.domain.model.request.LoginRequest
-import id.its.icar.domain.model.request.RegisterRequest
-import id.its.icar.domain.model.response.LoginResponse
+import id.its.icar.domain.user.model.request.LoginRequest
+import id.its.icar.domain.user.model.request.RegisterRequest
+import id.its.icar.domain.user.model.response.LoginResponse
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow

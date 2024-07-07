@@ -1,9 +1,9 @@
 package id.its.icar.di
 
-import id.its.icar.data.AuthDataStore
-import id.its.icar.data.AuthRepository
-import id.its.icar.domain.AuthInteractor
-import id.its.icar.domain.AuthUseCase
+import id.its.icar.data.user.AuthDataStore
+import id.its.icar.data.user.AuthRepository
+import id.its.icar.domain.user.AuthInteractor
+import id.its.icar.domain.user.AuthUseCase
 import id.its.icar.ui.screen.auth.AuthViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

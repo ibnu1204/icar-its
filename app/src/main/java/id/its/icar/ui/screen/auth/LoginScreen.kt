@@ -36,7 +36,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.wahidabd.library.utils.common.showToast
 import com.wahidabd.library.utils.compose.collectStateFlow
 import id.its.icar.R
-import id.its.icar.domain.model.request.LoginRequest
+import id.its.icar.domain.user.model.request.LoginRequest
 import id.its.icar.ui.components.IcarButton
 import id.its.icar.ui.components.IcarTextField
 import id.its.icar.ui.screen.destinations.RegisterScreenDestination

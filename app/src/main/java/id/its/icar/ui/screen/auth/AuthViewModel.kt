@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wahidabd.library.data.Resource
 import com.wahidabd.library.utils.coroutine.handler.GenericResponse
-import id.its.icar.domain.AuthUseCase
-import id.its.icar.domain.model.request.LoginRequest
-import id.its.icar.domain.model.request.RegisterRequest
-import id.its.icar.domain.model.response.LoginResponse
+import id.its.icar.domain.user.AuthUseCase
+import id.its.icar.domain.user.model.request.LoginRequest
+import id.its.icar.domain.user.model.request.RegisterRequest
+import id.its.icar.domain.user.model.response.LoginResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
